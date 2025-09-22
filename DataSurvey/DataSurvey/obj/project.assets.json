@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\shurl\\Downloads\\ContactManager\\DataSurvey\\DataSurvey\\DataSurvey.csproj",
+      "projectUniqueName": "C:\\Users\\shurl\\Source\\Repos\\AdvancedProgrammingTopic\\DataSurvey\\DataSurvey\\DataSurvey.csproj",
       "projectName": "DataSurvey",
-      "projectPath": "C:\\Users\\shurl\\Downloads\\ContactManager\\DataSurvey\\DataSurvey\\DataSurvey.csproj",
+      "projectPath": "C:\\Users\\shurl\\Source\\Repos\\AdvancedProgrammingTopic\\DataSurvey\\DataSurvey\\DataSurvey.csproj",
       "packagesPath": "C:\\Users\\shurl\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\shurl\\Downloads\\ContactManager\\DataSurvey\\DataSurvey\\obj\\",
+      "outputPath": "C:\\Users\\shurl\\Source\\Repos\\AdvancedProgrammingTopic\\DataSurvey\\DataSurvey\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
