@@ -18,7 +18,27 @@ namespace DataSurvey.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Database()
+        {
+            return View();
+        }
+
+        public IActionResult Student()
+        {
+            return View();
+        }
+
+        public IActionResult Teacher()
+        {
+            return View();
+        }
+
+        public IActionResult TeacherSelection()
+        {
+            return View();
+        }
+
+        public IActionResult StudentSelection()
         {
             return View();
         }
