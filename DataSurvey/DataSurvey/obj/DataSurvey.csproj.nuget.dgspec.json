@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jayce\\source\\repos\\AdvancedProgrammingTopic\\DataSurvey\\DataSurvey\\DataSurvey.csproj": {}
+    "C:\\Users\\jayce\\Source\\Repos\\AdvancedProgrammingTopic\\DataSurvey\\DataSurvey\\DataSurvey.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jayce\\source\\repos\\AdvancedProgrammingTopic\\DataSurvey\\DataSurvey\\DataSurvey.csproj": {
+    "C:\\Users\\jayce\\Source\\Repos\\AdvancedProgrammingTopic\\DataSurvey\\DataSurvey\\DataSurvey.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jayce\\source\\repos\\AdvancedProgrammingTopic\\DataSurvey\\DataSurvey\\DataSurvey.csproj",
+        "projectUniqueName": "C:\\Users\\jayce\\Source\\Repos\\AdvancedProgrammingTopic\\DataSurvey\\DataSurvey\\DataSurvey.csproj",
         "projectName": "DataSurvey",
-        "projectPath": "C:\\Users\\jayce\\source\\repos\\AdvancedProgrammingTopic\\DataSurvey\\DataSurvey\\DataSurvey.csproj",
+        "projectPath": "C:\\Users\\jayce\\Source\\Repos\\AdvancedProgrammingTopic\\DataSurvey\\DataSurvey\\DataSurvey.csproj",
         "packagesPath": "C:\\Users\\jayce\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\jayce\\source\\repos\\AdvancedProgrammingTopic\\DataSurvey\\DataSurvey\\obj\\",
         "projectStyle": "PackageReference",

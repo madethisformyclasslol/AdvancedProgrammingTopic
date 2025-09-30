@@ -1,0 +1,39 @@
+﻿@model DataSurvey.Models.StudentSurvey
+
+@{
+    ViewData["Title"] = "Student Make A Survey";
+}
+
+<form asp-action="Student" asp-controller="Student" method="post">
+
+    <div style="text-align:center;">
+        <h1>@ViewData["Title"]</h1>
+        <h3>Welcome, please select your Teachers for this semester</h3>
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+    </div>
+
+    <div class="text-center">
+        <input asp-for="StudentName" placeholder="Student's name?"/>
+        <input asp-for="StudentId" placeholder="Student's ID?"/>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(4, auto); gap: 20px 40px; justify-content: center; margin: 30px auto; font-size:20px;">
+        @for (int i = 1; i <= 16; i++)
+        {
+            <label>
+                <input type="checkbox" name="SelectedInstructors" value="Instructor @i" />
+                Instructor @i
+            </label>
+        }
+    </div>
+
+    <div style="text-align:center; margin-top:40px;">
+        <button type="submit" class="btn btn-primary btn-lg" style="font-size:20px;">
+            Submit
+        </button>
+        <a asp-action="Index" asp-controller="Home" class="btn btn-primary btn-lg" style="font-size: 20px;">
+            Home
+        </a>
+    </div>
+</form>
