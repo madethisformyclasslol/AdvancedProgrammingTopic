@@ -1,0 +1,27 @@
+﻿@model DataSurvey.Models.StudentSurvey
+
+@if (Model == null || string.IsNullOrWhiteSpace(Model.StudentName) && Model.StudentId == 0)
+{
+    <p>You've entered through odd means.</p>
+    <a asp-action="Index" asp-controller="Home" class="btn btn-primary btn-lg" style="font-size: 20px;">
+        Home
+    </a>
+}
+else
+{
+    <h2>Survey Results</h2>
+
+    <p><strong>Student Name:</strong> @Model.StudentName</p>
+    <p><strong>Student ID:</strong> @Model.StudentId</p>
+
+    <h3>Selected Instructors:</h3>
+    <ul>
+        @foreach (var instructor in Model.SelectedInstructors)
+        {
+            <li>@instructor</li>
+        }
+    </ul>
+    <a asp-action="Index" asp-controller="Home" class="btn btn-primary btn-lg" style="font-size: 20px;">
+        Home
+    </a>
+}

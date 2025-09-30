@@ -1,8 +1,17 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Main";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>Please choose the survey that applies to you.</p>
+    <p>Once I spend more time working on it I'll have two buttons below that will need controllers to redirect survey pages.</p>
+    <p>For now the Student and Teacher pages will appear in the navbar until the buttons and controllers are made.</p>
+     <a asp-controller="Student" asp-action="Student" class="btn btn-secondary btn-lg" style="margin: 10px; padding:50px 100px; font-size: 40px;">
+            Student
+     </a>
+    <a asp-controller="Teacher" asp-action="Teacher" class="btn btn-secondary btn-lg" style="margin: 10px; padding:50px 100px; font-size: 40px;">
+        Teacher
+    </a>
+    <p>buttons need inline styling for size and stuff.</p>
 </div>
