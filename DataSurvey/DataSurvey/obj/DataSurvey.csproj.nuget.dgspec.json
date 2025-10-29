@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jayce\\Source\\Repos\\AdvancedProgrammingTopic\\DataSurvey\\DataSurvey\\DataSurvey.csproj": {}
+    "C:\\Users\\lissa\\Source\\Repos\\AdvancedProgrammingTopic0\\DataSurvey\\DataSurvey\\DataSurvey.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jayce\\Source\\Repos\\AdvancedProgrammingTopic\\DataSurvey\\DataSurvey\\DataSurvey.csproj": {
+    "C:\\Users\\lissa\\Source\\Repos\\AdvancedProgrammingTopic0\\DataSurvey\\DataSurvey\\DataSurvey.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jayce\\Source\\Repos\\AdvancedProgrammingTopic\\DataSurvey\\DataSurvey\\DataSurvey.csproj",
+        "projectUniqueName": "C:\\Users\\lissa\\Source\\Repos\\AdvancedProgrammingTopic0\\DataSurvey\\DataSurvey\\DataSurvey.csproj",
         "projectName": "DataSurvey",
-        "projectPath": "C:\\Users\\jayce\\Source\\Repos\\AdvancedProgrammingTopic\\DataSurvey\\DataSurvey\\DataSurvey.csproj",
-        "packagesPath": "C:\\Users\\jayce\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jayce\\source\\repos\\AdvancedProgrammingTopic\\DataSurvey\\DataSurvey\\obj\\",
+        "projectPath": "C:\\Users\\lissa\\Source\\Repos\\AdvancedProgrammingTopic0\\DataSurvey\\DataSurvey\\DataSurvey.csproj",
+        "packagesPath": "C:\\Users\\lissa\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\lissa\\Source\\Repos\\AdvancedProgrammingTopic0\\DataSurvey\\DataSurvey\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\jayce\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lissa\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -49,6 +49,22 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[9.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.10, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

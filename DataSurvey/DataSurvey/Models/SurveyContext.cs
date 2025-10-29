@@ -1,17 +1,25 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.Collections.Generic;
+using System.Reflection.Emit;
+using Microsoft.EntityFrameworkCore;
+
 namespace DataSurvey.Models
 {
     public class SurveyContext : DbContext
     {
-        public SurveyContext(DbContextOptions options) : base(options)
+        public SurveyContext(DbContextOptions<SurveyContext> options) : base(options)
         {
         }
 
-        public DbSet<Student> Students { get; set; } = null;
-        public DbSet<Instructor> Instructors { get; set; } = null;
+        // Register all tables (DbSets)
+        public DbSet<Student> Students { get; set; } = null!;
+        public DbSet<Instructor> Instructors { get; set; } = null!;
+        public DbSet<Survey> Surveys { get; set; } = null!;
+        public DbSet<SurveyOptions> SurveyOptions { get; set; } = null!;
+        public DbSet<SurveyResponses> SurveyResponses { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // ---- STUDENT SEED DATA ----
             modelBuilder.Entity<Student>().HasData(
                 new Student
                 {
@@ -25,7 +33,6 @@ namespace DataSurvey.Models
                     CyberSecurity = false,
                     CulinaryArts = false
                 },
-
                 new Student
                 {
                     StudentId = 900000002,
@@ -38,7 +45,6 @@ namespace DataSurvey.Models
                     CyberSecurity = true,
                     CulinaryArts = true
                 },
-
                 new Student
                 {
                     StudentId = 900000003,
@@ -51,7 +57,6 @@ namespace DataSurvey.Models
                     CyberSecurity = false,
                     CulinaryArts = true
                 },
-
                 new Student
                 {
                     StudentId = 900000004,
@@ -64,7 +69,6 @@ namespace DataSurvey.Models
                     CyberSecurity = true,
                     CulinaryArts = false
                 },
-
                 new Student
                 {
                     StudentId = 900000005,
@@ -77,7 +81,6 @@ namespace DataSurvey.Models
                     CyberSecurity = false,
                     CulinaryArts = true
                 },
-
                 new Student
                 {
                     StudentId = 900000006,
@@ -90,7 +93,6 @@ namespace DataSurvey.Models
                     CyberSecurity = true,
                     CulinaryArts = false
                 },
-
                 new Student
                 {
                     StudentId = 900000007,
@@ -103,7 +105,6 @@ namespace DataSurvey.Models
                     CyberSecurity = false,
                     CulinaryArts = false
                 },
-
                 new Student
                 {
                     StudentId = 900000008,
@@ -116,7 +117,6 @@ namespace DataSurvey.Models
                     CyberSecurity = false,
                     CulinaryArts = true
                 },
-
                 new Student
                 {
                     StudentId = 900000009,
@@ -129,7 +129,6 @@ namespace DataSurvey.Models
                     CyberSecurity = false,
                     CulinaryArts = false
                 },
-
                 new Student
                 {
                     StudentId = 900000010,
@@ -142,9 +141,9 @@ namespace DataSurvey.Models
                     CyberSecurity = true,
                     CulinaryArts = true
                 }
-
             );
 
+            // ---- INSTRUCTOR SEED DATA ----
             modelBuilder.Entity<Instructor>().HasData(
                 new Instructor
                 {
@@ -158,7 +157,6 @@ namespace DataSurvey.Models
                     CyberSecurity = false,
                     CulinaryArts = false
                 },
-
                 new Instructor
                 {
                     InstructorId = 2,
@@ -171,7 +169,6 @@ namespace DataSurvey.Models
                     CyberSecurity = false,
                     CulinaryArts = true
                 },
-
                 new Instructor
                 {
                     InstructorId = 3,
@@ -184,7 +181,6 @@ namespace DataSurvey.Models
                     CyberSecurity = true,
                     CulinaryArts = false
                 },
-
                 new Instructor
                 {
                     InstructorId = 4,
@@ -197,7 +193,6 @@ namespace DataSurvey.Models
                     CyberSecurity = false,
                     CulinaryArts = false
                 },
-
                 new Instructor
                 {
                     InstructorId = 5,
@@ -210,7 +205,6 @@ namespace DataSurvey.Models
                     CyberSecurity = false,
                     CulinaryArts = false
                 },
-
                 new Instructor
                 {
                     InstructorId = 6,
@@ -223,7 +217,6 @@ namespace DataSurvey.Models
                     CyberSecurity = false,
                     CulinaryArts = false
                 },
-
                 new Instructor
                 {
                     InstructorId = 7,
@@ -236,7 +229,6 @@ namespace DataSurvey.Models
                     CyberSecurity = true,
                     CulinaryArts = false
                 },
-
                 new Instructor
                 {
                     InstructorId = 8,
@@ -250,8 +242,7 @@ namespace DataSurvey.Models
                     CulinaryArts = true
                 }
             );
-
         }
-        
     }
 }
+

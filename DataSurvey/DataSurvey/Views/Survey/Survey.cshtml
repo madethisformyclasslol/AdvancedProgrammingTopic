@@ -1,0 +1,26 @@
+﻿@model IEnumerable<DataSurvey.Models.Survey>
+
+<h2>Available Surveys</h2>
+<p>Select a survey to take:</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Survey Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.SurveyId</td>
+                <td>@s.SurveyName</td>
+                <td>
+                    <a asp-action="TakeSurvey" asp-route-id="@s.SurveyId" class="btn btn-primary">Take Survey</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

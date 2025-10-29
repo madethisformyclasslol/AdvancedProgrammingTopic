@@ -1,9 +1,40 @@
 ﻿@{
-    ViewData["Title"] = "Database Control";
+    ViewData["Title"] = "Database";
 }
 
+<h2>DataSurvey Portal</h2>
+<p>Select a section below to view or take surveys:</p>
 
-<div class="text-center">
-<h1>@ViewData["Title"]</h1>
-<p>This page will be used to load the statistics based on the results of the Student and Teacher surveys.</p>
+<div style="margin-top: 20px;">
+    <!-- Student Survey Section -->
+    <div style="margin-bottom: 15px;">
+        <h4>Student Survey</h4>
+        <p>Take or review the student-specific surveys.</p>
+        <a asp-controller="Student" asp-action="Student" class="btn btn-primary">Go to Student Survey</a>
+    </div>
+
+    <hr />
+
+    <!-- Teacher Survey Section -->
+    <div style="margin-bottom: 15px;">
+        <h4>Teacher Survey</h4>
+        <p>Complete the instructor-focused survey forms.</p>
+        <a asp-controller="Teacher" asp-action="Teacher" class="btn btn-success">Go to Teacher Survey</a>
+    </div>
+
+    <hr />
+
+    <!-- General Surveys Section -->
+    <div style="margin-bottom: 15px;">
+        <h4>Available Surveys</h4>
+        <p>View or take any available surveys stored in the database.</p>
+        <a asp-controller="Survey" asp-action="Survey" class="btn btn-info">View All Surveys</a>
+    </div>
+</div>
+
+<hr />
+
+<!-- Optional: Return Home -->
+<div style="margin-top: 20px;">
+    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Back to Home</a>
 </div>
