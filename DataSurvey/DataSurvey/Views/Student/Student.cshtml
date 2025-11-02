@@ -50,7 +50,7 @@
 
     <div class="container mt-4">
         <div class="row text-start">
-            @if (ViewBag.Instructors != null && ViewBag.Instructors.Count > 0)
+            @if (ViewBag.Instructors != null && ((List<DataSurvey.Models.Instructor>)ViewBag.Instructors).Count > 0)
             {
                 @foreach (var instructor in ViewBag.Instructors)
                 {

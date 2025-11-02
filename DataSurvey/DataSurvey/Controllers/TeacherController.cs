@@ -16,45 +16,42 @@ namespace DataSurvey.Controllers
 
         public IActionResult Teacher(int? instructorId)
         {
-            var teachers = _context.Instructors.OrderBy(t => t.Name).ToList();
+            // Get all instructors
+            var allInstructors = _context.Instructors.OrderBy(t => t.Name).ToList();
+            ViewBag.Teachers = allInstructors;
+
+            // Default to empty list of students
             List<Student> students = new List<Student>();
 
-            if (instructorId.HasValue)
+            if (instructorId.HasValue && instructorId.Value > 0)
             {
-                var teacher = _context.Instructors.FirstOrDefault(t => t.InstructorId == instructorId); if (teacher != null)
-                { 
-                  // Filter students matching teacher's programs
-                  students = _context.Students 
+                var teacher = _context.Instructors.FirstOrDefault(t => t.InstructorId == instructorId.Value);
+                if (teacher != null)
+                {
+                    students = _context.Students
                         .Where(s =>
-                         (s.Programming && teacher.Programming) ||
-                         (s.Welding && teacher.Welding) ||
-                         (s.CyberSecurity && teacher.CyberSecurity) ||
-                         (s.CulinaryArts && teacher.CulinaryArts)) 
-                        .OrderBy(s => s.Name) 
+                            (s.Programming && teacher.Programming) ||
+                            (s.Welding && teacher.Welding) ||
+                            (s.CyberSecurity && teacher.CyberSecurity) ||
+                            (s.CulinaryArts && teacher.CulinaryArts))
+                        .OrderBy(s => s.Name)
                         .ToList();
-                } 
-            } 
-            else 
-            { 
-                // Default: show all students
-                students = _context.Students.OrderBy(s => s.Name).ToList();
-            } 
+                }
+            }
 
-            ViewBag.Teachers = teachers;
             ViewBag.Students = students;
-            ViewBag.SelectedInstructorId = instructorId;
+            ViewBag.SelectedInstructorId = instructorId ?? 0;
 
-            return View(); 
+            return View();
         }
 
 
-                    [HttpGet]
+        [HttpGet]
         public IActionResult TeachSurvey()
         {
             return View();
         }
 
-        // POST: /Teacher/SubmitSurvey
         [HttpPost]
         public IActionResult SubmitSurvey(int InstructorId, List<int> SelectedStudents)
         {
