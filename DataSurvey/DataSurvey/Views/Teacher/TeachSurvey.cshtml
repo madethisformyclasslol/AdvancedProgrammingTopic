@@ -1,26 +1,35 @@
 ﻿@model DataSurvey.Models.TeacherSurvey
 
-@if (Model == null || string.IsNullOrWhiteSpace(Model.TeacherName))
+@if (Model == null || (string.IsNullOrWhiteSpace(Model.TeacherName) && Model.InstructorId == 0))
 {
     <p>You've entered through odd means.</p>
-    <a asp-action="Index" asp-controller="Home" class="btn btn-primary btn-lg" style="font-size: 20px;">
-        Home
-    </a>
+    <a asp-action="Index" asp-controller="Home" class="btn btn-primary">Home</a>
 }
 else
 {
     <h2>Survey Results</h2>
 
     <p><strong>Teacher Name:</strong> @Model.TeacherName</p>
+    <p><strong>Instructor ID:</strong> @Model.InstructorId</p>
 
     <h3>Selected Students:</h3>
-    <ul>
-        @foreach (var Student in Model.SelectedStudents)
-        {
-            <li>@Student</li>
-        }
-    </ul>
-    <a asp-action="Index" asp-controller="Home" class="btn btn-primary btn-lg" style="font-size: 20px;">
-        Home
-    </a>
+
+        var allStudents = ViewBag.AllStudents as List<DataSurvey.Models.Student>;
+
+    @if (allStudents != null && Model.SelectedStudents != null && Model.SelectedStudents.Any())
+    {
+        <ul>
+            @foreach (var id in Model.SelectedStudents)
+            {
+                var student = allStudents.FirstOrDefault(s => s.StudentId == id);
+                <li>@student?.Name</li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>No students were selected.</p>
+    }
+
+    <a asp-action="Index" asp-controller="Home" class="btn btn-primary mt-3">Home</a>
 }

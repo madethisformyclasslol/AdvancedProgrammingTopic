@@ -11,15 +11,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataSurvey.Migrations
 {
     [DbContext(typeof(SurveyContext))]
-    [Migration("20251010203627_Update1")]
-    partial class Update1
+    [Migration("20251102223345_initia")]
+    partial class initia
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.9")
+                .HasAnnotation("ProductVersion", "9.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -324,6 +324,65 @@ namespace DataSurvey.Migrations
                             Username = "oachiever",
                             Welding = true
                         });
+                });
+
+            modelBuilder.Entity("DataSurvey.Models.Survey", b =>
+                {
+                    b.Property<int>("SurveyId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SurveyId"));
+
+                    b.Property<string>("SurveyName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("SurveyId");
+
+                    b.ToTable("Surveys");
+                });
+
+            modelBuilder.Entity("DataSurvey.Models.SurveyOptions", b =>
+                {
+                    b.Property<int>("OptionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OptionId"));
+
+                    b.Property<string>("OptionName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SurveyId")
+                        .HasColumnType("int");
+
+                    b.HasKey("OptionId");
+
+                    b.ToTable("SurveyOptions");
+                });
+
+            modelBuilder.Entity("DataSurvey.Models.SurveyResponses", b =>
+                {
+                    b.Property<int>("SurveyResponsesId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SurveyResponsesId"));
+
+                    b.Property<int>("OptionId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ResponseText")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("SurveyId")
+                        .HasColumnType("int");
+
+                    b.HasKey("SurveyResponsesId");
+
+                    b.ToTable("SurveyResponses");
                 });
 #pragma warning restore 612, 618
         }

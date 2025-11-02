@@ -4722,23 +4722,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\lissa\\.nuget\\packages\\": {},
+    "C:\\Users\\jayce\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lissa\\Source\\Repos\\AdvancedProgrammingTopic0\\DataSurvey\\DataSurvey\\DataSurvey.csproj",
+      "projectUniqueName": "C:\\Users\\jayce\\Source\\Repos\\AdvancedProgrammingTopictesting\\DataSurvey\\DataSurvey\\DataSurvey.csproj",
       "projectName": "DataSurvey",
-      "projectPath": "C:\\Users\\lissa\\Source\\Repos\\AdvancedProgrammingTopic0\\DataSurvey\\DataSurvey\\DataSurvey.csproj",
-      "packagesPath": "C:\\Users\\lissa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lissa\\Source\\Repos\\AdvancedProgrammingTopic0\\DataSurvey\\DataSurvey\\obj\\",
+      "projectPath": "C:\\Users\\jayce\\Source\\Repos\\AdvancedProgrammingTopictesting\\DataSurvey\\DataSurvey\\DataSurvey.csproj",
+      "packagesPath": "C:\\Users\\jayce\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\jayce\\Source\\Repos\\AdvancedProgrammingTopictesting\\DataSurvey\\DataSurvey\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\lissa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\jayce\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4747,6 +4747,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Users\\jayce\\AppData\\Roaming\\NuGet\\NuGetPackages": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
