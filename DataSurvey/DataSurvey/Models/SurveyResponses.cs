@@ -2,14 +2,17 @@
 {
     public class SurveyResponses
     {
-        //class for table containing responses to individual surveys.
-        //When a survey is pulled from the database, responses matching the surveyId are also pulled.
-        //OptionId is used as a foreign key to the options database, matching the reponse to the selected option
+        // Primary key
+        public int SurveyResponsesId { get; set; }
 
-        int ResponseId { get; set; }
+        // Foreign key: which Survey this response belongs to
+        public int SurveyId { get; set; }
 
-        int SurveyId{ get; set; }
+        // Optional link to a specific option (e.g., Student or Instructor)
+        public int OptionId { get; set; }
 
-        int OptionId { get; set; }
+        // Optional text field if you ever add open-ended responses later
+        public string? ResponseText { get; set; }
     }
 }
+

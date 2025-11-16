@@ -1,0 +1,26 @@
+﻿@model DataSurvey.Models.Survey
+@{
+    var options = ViewBag.Options as List<string>;
+}
+
+<h2>@Model.SurveyName</h2>
+
+@if (ViewBag.Error != null)
+{
+    <p style="color:red">@ViewBag.Error</p>
+}
+
+<form asp-action="TakeSurvey" method="post">
+    <input type="hidden" name="id" value="@Model.SurveyId" />
+
+    <label for="selectedOption">Select an option:</label>
+    <select name="selectedOption" id="selectedOption" class="form-control">
+        <option value="">-- Choose one --</option>
+        @foreach (var opt in options)
+        {
+            <option value="@opt">@opt</option>
+        }
+    </select>
+
+    <button type="submit" class="btn btn-success mt-3">Submit</button>
+</form>

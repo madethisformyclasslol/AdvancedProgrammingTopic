@@ -1,3 +1,5 @@
+using DataSurvey.Models;
+using Microsoft.EntityFrameworkCore;
 using System.IO;
 
 var builder = WebApplication.CreateBuilder(new WebApplicationOptions
@@ -8,6 +10,10 @@ var builder = WebApplication.CreateBuilder(new WebApplicationOptions
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<SurveyContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
 var app = builder.Build();
 
