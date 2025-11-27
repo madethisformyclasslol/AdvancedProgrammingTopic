@@ -12,7 +12,7 @@ namespace DataSurvey.Models
         public int OptionId { get; set; }
 
         //foreign key for Survey class SurveyIds
-        public  int SurveyId { get; set; }
+        public string SurveyId { get; set; }
 
         public string OptionName { get; set; } = string.Empty;
     }

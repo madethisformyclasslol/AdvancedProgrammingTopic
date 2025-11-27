@@ -1,24 +1,25 @@
-﻿@model DataSurvey.Models.Survey
+﻿@model DataSurvey.Models.SurveyViewModel
 @{
-    var options = ViewBag.Options as List<string>;
+    var options = ViewBag.Options as List<DataSurvey.Models.SurveyOptions>;
 }
 
-<h2>@Model.SurveyName</h2>
+<h2>@Model.SelectedSurvey.SurveyName </h2>
 
 @if (ViewBag.Error != null)
 {
     <p style="color:red">@ViewBag.Error</p>
 }
 
-<form asp-action="TakeSurvey" method="post">
-    <input type="hidden" name="id" value="@Model.SurveyId" />
 
-    <label for="selectedOption">Select an option:</label>
-    <select name="selectedOption" id="selectedOption" class="form-control">
+<form asp-action="TakeSurvey" method="post">
+    <input type="hidden" asp-for="SelectedSurvey.SurveyId" value="@Model.SelectedSurvey.SurveyId" />
+
+    <label asp-for="SurveyOptions.OptionId">Select an option:</label>
+    <select asp-for="SurveyOptions.OptionId" id="selectedOption" class="form-control">
         <option value="">-- Choose one --</option>
         @foreach (var opt in options)
         {
-            <option value="@opt">@opt</option>
+            <option value="@opt.OptionId">@opt.OptionName</option>
         }
     </select>
 

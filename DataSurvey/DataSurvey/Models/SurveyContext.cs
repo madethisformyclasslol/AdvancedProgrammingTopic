@@ -27,7 +27,7 @@ namespace DataSurvey.Models
                     Name = "Jack Shurling",
                     Username = "jshurling",
                     Password = "password1",
-                    Email = "jshurlin@smartweb.augustatech.edu",
+                    Email = "jshurling@smartweb.augustatech.edu",
                     Programming = true,
                     Welding = false,
                     CyberSecurity = false,

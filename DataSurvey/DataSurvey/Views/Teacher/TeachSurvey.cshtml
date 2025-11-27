@@ -1,6 +1,6 @@
-﻿@model DataSurvey.Models.TeacherSurvey
+﻿@model DataSurvey.Models.Survey
 
-@if (Model == null || (string.IsNullOrWhiteSpace(Model.TeacherName) && Model.InstructorId == 0))
+@if (Model == null || (string.IsNullOrWhiteSpace(ViewBag.SelectedInstructor) && ViewBag.SelectedInstructorId == 0))
 {
     <p>You've entered through odd means.</p>
     <a asp-action="Index" asp-controller="Home" class="btn btn-primary">Home</a>
@@ -9,17 +9,17 @@ else
 {
     <h2>Survey Results</h2>
 
-    <p><strong>Teacher Name:</strong> @Model.TeacherName</p>
-    <p><strong>Instructor ID:</strong> @Model.InstructorId</p>
+    <p><strong>Teacher Name:</strong> ViewBag.SelectedInstructor</p>
+    <p><strong>Instructor ID:</strong> ViewBag.SelectedInstructorId</p>
 
     <h3>Selected Students:</h3>
 
         var allStudents = ViewBag.AllStudents as List<DataSurvey.Models.Student>;
 
-    @if (allStudents != null && Model.SelectedStudents != null && Model.SelectedStudents.Any())
+    @if (allStudents != null && ViewBag.Students != null && ViewBag.Students.Any())
     {
         <ul>
-            @foreach (var id in Model.SelectedStudents)
+            @foreach (var id in ViewBag.Students)
             {
                 var student = allStudents.FirstOrDefault(s => s.StudentId == id);
                 <li>@student?.Name</li>

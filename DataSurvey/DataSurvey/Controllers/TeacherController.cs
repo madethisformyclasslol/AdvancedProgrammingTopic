@@ -36,11 +36,13 @@ namespace DataSurvey.Controllers
                             (s.CulinaryArts && teacher.CulinaryArts))
                         .OrderBy(s => s.Name)
                         .ToList();
+                    ViewBag.SelectedInstructor = teacher.Name;
                 }
             }
 
             ViewBag.Students = students;
             ViewBag.SelectedInstructorId = instructorId ?? 0;
+            ViewBag.Instructors = allInstructors;
 
             return View();
         }
@@ -55,26 +57,40 @@ namespace DataSurvey.Controllers
         [HttpPost]
         public IActionResult SubmitSurvey(int InstructorId, List<int> SelectedStudents)
         {
+            var surveyid = Guid.NewGuid();
             if (InstructorId == 0 || SelectedStudents == null || !SelectedStudents.Any())
             {
                 TempData["Error"] = "Please select an instructor and at least one student.";
                 ViewBag.Teachers = _context.Instructors.OrderBy(i => i.Name).ToList();
                 ViewBag.Students = _context.Students.ToList();
                 ViewBag.SelectedInstructorId = InstructorId;
-                return View("MakeSurvey");
+                return View("Teacher");
             }
 
             var instructor = _context.Instructors.FirstOrDefault(i => i.InstructorId == InstructorId);
-            var model = new TeacherSurvey
+            var survey = new Survey
             {
-                InstructorId = InstructorId,
-                TeacherName = instructor?.Name ?? "",
-                SelectedStudents = SelectedStudents
+                SurveyId = surveyid.ToString(),
+                SurveyName = instructor?.Name ?? "Unknown Student",
+                StudentSurvey = false,
+                InstructorSurvey = true
+
             };
+            foreach (var studentId in SelectedStudents)
+            {
+                var surveyOption = new SurveyOptions
+                {
+                    SurveyId = surveyid.ToString(),
+                    OptionName = _context.Students.FirstOrDefault(s => s.StudentId == studentId)?.Name ?? ""
+                };
+                _context.SurveyOptions.Add(surveyOption);
+            }
+            _context.Surveys.Add(survey);
 
             ViewBag.AllStudents = _context.Students.ToList();
+            _context.SaveChanges();
 
-            return View("TeachSurvey", model);
+            return View("TeachSurvey", survey);
         }
     }
 }

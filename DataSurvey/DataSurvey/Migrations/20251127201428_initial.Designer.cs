@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataSurvey.Migrations
 {
     [DbContext(typeof(SurveyContext))]
-    [Migration("20251102223345_initia")]
-    partial class initia
+    [Migration("20251127201428_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -209,7 +209,7 @@ namespace DataSurvey.Migrations
                             StudentId = 900000001,
                             CulinaryArts = false,
                             CyberSecurity = false,
-                            Email = "jshurlin@smartweb.augustatech.edu",
+                            Email = "jshurling@smartweb.augustatech.edu",
                             Name = "Jack Shurling",
                             Password = "password1",
                             Programming = true,
@@ -328,11 +328,14 @@ namespace DataSurvey.Migrations
 
             modelBuilder.Entity("DataSurvey.Models.Survey", b =>
                 {
-                    b.Property<int>("SurveyId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                    b.Property<string>("SurveyId")
+                        .HasColumnType("nvarchar(450)");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SurveyId"));
+                    b.Property<bool>("InstructorSurvey")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("StudentSurvey")
+                        .HasColumnType("bit");
 
                     b.Property<string>("SurveyName")
                         .IsRequired()
@@ -355,8 +358,9 @@ namespace DataSurvey.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("SurveyId")
-                        .HasColumnType("int");
+                    b.Property<string>("SurveyId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("OptionId");
 
@@ -365,11 +369,8 @@ namespace DataSurvey.Migrations
 
             modelBuilder.Entity("DataSurvey.Models.SurveyResponses", b =>
                 {
-                    b.Property<int>("SurveyResponsesId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SurveyResponsesId"));
+                    b.Property<string>("SurveyResponsesId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("OptionId")
                         .HasColumnType("int");
@@ -377,8 +378,9 @@ namespace DataSurvey.Migrations
                     b.Property<string>("ResponseText")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("SurveyId")
-                        .HasColumnType("int");
+                    b.Property<string>("SurveyId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("SurveyResponsesId");
 

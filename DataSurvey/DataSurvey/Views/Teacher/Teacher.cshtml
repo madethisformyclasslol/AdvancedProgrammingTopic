@@ -1,4 +1,4 @@
-﻿@model DataSurvey.Models.TeacherSurvey
+﻿@model DataSurvey.Models.Instructor
 @{
     ViewData["Title"] = "Teacher Make A Survey";
 
@@ -17,7 +17,7 @@
     // Find the selected instructor
     var selectedTeacher = ViewBag.Teachers as List<DataSurvey.Models.Instructor>;
     var teacher = selectedTeacher?.FirstOrDefault(t => t.InstructorId == selectedInstructorId);
-    string teacherName = Model?.TeacherName ?? teacher?.Name ?? string.Empty;
+    string teacherName = ViewBag.SelectedInstructor ?? teacher?.Name ?? string.Empty;
 }
 
 <div class="text-center">
@@ -57,7 +57,7 @@
                 {
                     <div class="col-md-3 mb-2">
                         <input type="checkbox" name="SelectedStudents" value="@student.StudentId"
-                               @(Model?.SelectedStudents?.Contains(student.StudentId) == true ? "checked" : "") />
+                               @(ViewBag?.SelectedStudents?.Contains(student.StudentId) == true ? "checked" : "") />
                         @student.Name
                     </div>
                 }
