@@ -55,7 +55,7 @@ namespace DataSurvey.Controllers
         }
 
         [HttpPost]
-        public IActionResult SubmitSurvey(int InstructorId, List<int> SelectedStudents)
+        public IActionResult SubmitSurvey(int InstructorId, List<int> SelectedStudents, string surveyName)
         {
             var surveyid = Guid.NewGuid();
             if (InstructorId == 0 || SelectedStudents == null || !SelectedStudents.Any())
@@ -71,7 +71,7 @@ namespace DataSurvey.Controllers
             var survey = new Survey
             {
                 SurveyId = surveyid.ToString(),
-                SurveyName = instructor?.Name ?? "Unknown Student",
+                SurveyName = surveyName,
                 StudentSurvey = false,
                 InstructorSurvey = true
 

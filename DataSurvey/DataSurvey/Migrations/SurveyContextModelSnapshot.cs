@@ -372,7 +372,8 @@ namespace DataSurvey.Migrations
                     b.Property<int>("OptionId")
                         .HasColumnType("int");
 
-                    b.Property<string>("ResponseText")
+                    b.Property<string>("OptionName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SurveyId")

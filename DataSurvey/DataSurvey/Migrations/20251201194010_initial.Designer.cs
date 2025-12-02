@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataSurvey.Migrations
 {
     [DbContext(typeof(SurveyContext))]
-    [Migration("20251127201428_initial")]
+    [Migration("20251201194010_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -375,7 +375,8 @@ namespace DataSurvey.Migrations
                     b.Property<int>("OptionId")
                         .HasColumnType("int");
 
-                    b.Property<string>("ResponseText")
+                    b.Property<string>("OptionName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SurveyId")

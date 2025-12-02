@@ -11,8 +11,8 @@
         // Optional link to a specific option (e.g., Student or Instructor)
         public int OptionId { get; set; }
 
-        // Optional text field if you ever add open-ended responses later
-        public string? ResponseText { get; set; }
+        //Name of the option selected
+        public string OptionName { get; set; }
     }
 }
 

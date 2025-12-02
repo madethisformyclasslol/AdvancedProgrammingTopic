@@ -73,7 +73,7 @@ namespace DataSurvey.Migrations
                     SurveyResponsesId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     SurveyId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     OptionId = table.Column<int>(type: "int", nullable: false),
-                    ResponseText = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    OptionName = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -48,11 +48,13 @@ namespace DataSurvey.Controllers
         public IActionResult TakeSurvey(SurveyViewModel model)
         {
             var responseid = Guid.NewGuid();
+            SurveyOptions option = _context.SurveyOptions.FirstOrDefault(s => s.OptionId == model.SurveyOptions.OptionId);
             SurveyResponses responses = new SurveyResponses()
             {
                 SurveyResponsesId = responseid.ToString(),
                 SurveyId = model.SelectedSurvey.SurveyId,
-                OptionId = model.SurveyOptions.OptionId
+                OptionId = model.SurveyOptions.OptionId,
+                OptionName = option.OptionName
             };
             _context.Add(responses);
             _context.SaveChanges();
