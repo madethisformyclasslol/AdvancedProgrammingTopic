@@ -47,11 +47,25 @@ namespace DataSurvey.Controllers
             return View();
         }
 
-
         [HttpGet]
         public IActionResult TeachSurvey()
         {
-            return View();
+            // Get all surveys, newest first
+            var surveys = _context.Surveys
+                .OrderByDescending(s => s.PId)
+                .ToList();
+
+            return View(surveys);
+        }
+
+        [HttpGet]
+        public IActionResult SubmitSurvey()
+        {
+            SurveyViewModel model = new SurveyViewModel
+            {
+
+            };
+            return View(model);
         }
 
         [HttpPost]
@@ -90,7 +104,7 @@ namespace DataSurvey.Controllers
             ViewBag.AllStudents = _context.Students.ToList();
             _context.SaveChanges();
 
-            return View("TeachSurvey", survey);
+            return View("TeachSurvey", _context.Surveys.OrderByDescending(s => s.PId).ToList());
         }
     }
 }

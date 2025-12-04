@@ -46,8 +46,12 @@ namespace DataSurvey.Controllers
         [HttpGet]
         public IActionResult StuSurvey()
         {
-            // Return empty model if navigated directly
-            return View();
+            // Get all surveys, newest first
+            var surveys = _context.Surveys
+                .OrderByDescending(s => s.PId)
+                .ToList();
+
+            return View(surveys);
         }
 
         [HttpGet]
@@ -96,7 +100,7 @@ namespace DataSurvey.Controllers
 
             ViewBag.AllInstructors = _context.Instructors.ToList();
             _context.SaveChanges();
-            return View("StuSurvey", survey);
+            return View("StuSurvey", _context.Surveys.OrderByDescending(s => s.PId).ToList());
         }
     }
 }

@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataSurvey.Migrations
 {
     [DbContext(typeof(SurveyContext))]
-    [Migration("20251201194010_initial")]
-    partial class initial
+    [Migration("20251204155151_inital")]
+    partial class inital
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -328,8 +328,11 @@ namespace DataSurvey.Migrations
 
             modelBuilder.Entity("DataSurvey.Models.Survey", b =>
                 {
-                    b.Property<string>("SurveyId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("PId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PId"));
 
                     b.Property<bool>("InstructorSurvey")
                         .HasColumnType("bit");
@@ -337,11 +340,15 @@ namespace DataSurvey.Migrations
                     b.Property<bool>("StudentSurvey")
                         .HasColumnType("bit");
 
+                    b.Property<string>("SurveyId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("SurveyName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("SurveyId");
+                    b.HasKey("PId");
 
                     b.ToTable("Surveys");
                 });

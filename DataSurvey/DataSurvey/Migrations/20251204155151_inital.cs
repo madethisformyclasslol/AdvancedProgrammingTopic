@@ -7,7 +7,7 @@
 namespace DataSurvey.Migrations
 {
     /// <inheritdoc />
-    public partial class initial : Migration
+    public partial class inital : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -84,14 +84,16 @@ namespace DataSurvey.Migrations
                 name: "Surveys",
                 columns: table => new
                 {
-                    SurveyId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    PId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    SurveyId = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     SurveyName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     StudentSurvey = table.Column<bool>(type: "bit", nullable: false),
                     InstructorSurvey = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Surveys", x => x.SurveyId);
+                    table.PrimaryKey("PK_Surveys", x => x.PId);
                 });
 
             migrationBuilder.InsertData(

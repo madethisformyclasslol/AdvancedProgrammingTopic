@@ -1,34 +1,30 @@
-﻿@model DataSurvey.Models.Survey
+﻿@model List<DataSurvey.Models.Survey>
 
-@if (Model == null || string.IsNullOrWhiteSpace(ViewBag.SelectedStudent) && ViewBag.SelectedStudentId == 0)
+@if (Model == null || !Model.Any())
 {
-    <p>You've entered through odd means.</p>
-    <a asp-action="Index" asp-controller="Home" class="btn btn-primary">Home</a>
+    <p>No surveys found.</p>
 }
 else
 {
-    <h2>Survey Results</h2>
-    <p><strong>Student Name:</strong> @ViewBag.SelectedStudent</p>
-    <p><strong>Student ID:</strong> @ViewBag.SelectedStudentId</p>
+    <div class="text-center">
+        <h2>Here’s your survey</h2>
 
-    <h3>Selected Instructors:</h3>
+        @{
+            var recent = Model.First();
+        }
 
-        var allInstructors = ViewBag.AllInstructors as List<DataSurvey.Models.Instructor>;
+        <table class="table mx-auto" style="width: auto;">
+            <tr>
+                <td>@recent.SurveyName</td>
+                <td>
+                    <a asp-action="TakeSurvey" asp-route-id="@recent.SurveyId" class="btn btn-primary">
+                        Take Survey
+                    </a>
+                </td>
+            </tr>
+        </table>
 
-    @if (allInstructors != null && ViewBag.Instructors != null && ViewBag.Instructors.Any())
-    {
-        <ul>
-            @foreach (var id in ViewBag.Instructors)
-            {
-                var instructor = allInstructors.FirstOrDefault(i => i.InstructorId == id);
-                <li>@instructor?.Name</li>
-            }
-        </ul>
-    }
-    else
-    {
-        <p>No instructors were selected.</p>
-    }
-
-    <a asp-action="Index" asp-controller="Home" class="btn btn-primary">Home</a>
+        <a asp-action="Index" asp-controller="Home" class="btn btn-primary mt-3">Home</a>
+    </div>
 }
+
