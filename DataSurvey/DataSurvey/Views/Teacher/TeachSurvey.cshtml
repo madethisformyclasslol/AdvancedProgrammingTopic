@@ -17,7 +17,7 @@ else
             <tr>
                 <td>@recent.SurveyName</td>
                 <td>
-                    <a asp-action="TakeSurvey" asp-route-id="@recent.SurveyId" class="btn btn-primary">
+                    <a asp-action="TakeSurvey" asp-controller="Survey" asp-route-id="@recent.SurveyId" class="btn btn-primary">
                         Take Survey
                     </a>
                 </td>

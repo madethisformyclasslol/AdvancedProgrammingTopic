@@ -15,7 +15,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #004d00;
+            background-color: #004F4B;
             color: white;
             padding: 15px 0;
             margin-bottom: 20px;
@@ -69,7 +69,7 @@
             text-align: center;
             margin-top: 30px;
             padding: 10px;
-            background-color: #004d00;
+            background-color: #004F4B;
             color: white;
             border-radius: 0 0 8px 8px;
         }
@@ -79,6 +79,13 @@
     <header>
         <img src="~/images/logo.png" alt="Site Logo" class="logo">
         <h1>Augusta Tech DataSurvey</h1>
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+            <ul class="navbar-nav flex-grow-1">
+                <li class="nav-item">
+                    <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+            </ul>
+        </div>
     </header>
 
     <main role="main" class="pb-3">
